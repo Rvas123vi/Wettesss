@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio Profil</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --led-on: #00ff00;
+      --led-off: #555;
+    }
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: sans-serif;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    .led {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: var(--led-on);
+      box-shadow: 0 0 10px var(--led-on);
+      margin: 0 auto 1rem;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    .led.off {
+      background-color: var(--led-off);
+      box-shadow: none;
+    }
+    .profile-link {
+      margin-bottom: 1rem;
+      display: block;
+      font-size: 1.2rem;
+      color: inherit;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .buttons button {
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .buttons button:hover {
+      transform: scale(1.1);
+    }
+    .theme-toggle {
+      margin-top: 2rem;
+      padding: 0.5rem 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="led" id="led"></div>
+  <a href="#" class="profile-link">Kunjungi Profil Saya</a>
+  <div class="buttons">
+    <button style="background-color: red; border-radius: 0;">Tombol 1</button>
+    <button style="background-color: blue; border-radius: 50%;">Tombol 2</button>
+    <button style="background-color: green; border-radius: 10px;">Tombol 3</button>
+    <button style="background-color: orange; border-radius: 5px 15px;">Tombol 4</button>
+    <button style="background-color: purple; border-radius: 0 20px;">Tombol 5</button>
+    <button style="background-color: teal; border-radius: 20px 0;">Tombol 6</button>
+    <button style="background-color: pink; border-radius: 25%;">Tombol 7</button>
+    <button style="background-color: yellow; color: black; border-radius: 15px;">Tombol 8</button>
+    <button style="background-color: brown; border-radius: 30px;">Tombol 9</button>
+    <button style="background-color: gray; border-radius: 100px;">Tombol 10</button>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()">Ganti Mode Tema</button>
+  <script>
+    const led = document.getElementById('led');
+    let ledOn = true;
+    setInterval(() => {
+      ledOn = !ledOn;
+      led.classList.toggle('off', !ledOn);
+    }, 1000);
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
